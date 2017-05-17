@@ -1,18 +1,18 @@
 /**
-UNIX Shell Project
+ UNIX Shell Project
 
-Sistemas Operativos
-Grados I. Informatica, Computadores & Software
-Dept. Arquitectura de Computadores - UMA
+ Sistemas Operativos
+ Grados I. Informatica, Computadores & Software
+ Dept. Arquitectura de Computadores - UMA
 
-Some code adapted from "Fundamentos de Sistemas Operativos", Silberschatz et al.
+ Some code adapted from "Fundamentos de Sistemas Operativos", Silberschatz et al.
 
-To compile and run the program:
-$ gcc Shell_project.c job_control.c -o Shell
-$ ./Shell
-(then type ^D to exit program)
+ To compile and run the program:
+ $ gcc Shell_project.c job_control.c -o Shell
+ $ ./Shell
+	(then type ^D to exit program)
 
-**/
+ **/
 
 #include "job_control.h"   // remember to compile with module job_control.c
 #include <string.h>
@@ -44,8 +44,8 @@ int main(void)
         if(args[0]==NULL){
            continue; // if empty command
         }else if(strcmp(args[0],"cd")== 0){
-            if(chdir(args[1])==-1) printf("ERROR: directorio no encontrado\n");
-            else chdir(args[1]);
+            if(-1 == chdir(args[1])) //printf("ERROR: directorio no encontrado\n");
+            perror(args[1]);
             continue;
         }else{
             pid_fork = fork();
