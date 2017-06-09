@@ -31,8 +31,6 @@ void manejador(){
   enum status status_res;
   int pid_wait;
 
-  int boolean = 0;
-
   job * aux;
   job * listaAux = list;
 
@@ -52,7 +50,6 @@ void manejador(){
                   aux = listaAux;
                   printf("\nBorrando pid: %d, Command: %s, %s, Info: %d\n",aux->pgid,aux->command,status_strings[status_res],info);
                   listaAux = listaAux->next;
-                  boolean = 1;
                   delete_job(list,aux);
                   free_job(aux);
               }else{
